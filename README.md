@@ -157,7 +157,41 @@ VMS/
 
 ---
 
-## ⚙️ Setup & Installation
+## 🚀 Deployment (Render)
+
+### Live URLs
+| Service | URL |
+|---------|-----|
+| Frontend | https://vms-frontend-2us4.onrender.com |
+| Backend API | https://vms-c7m6.onrender.com |
+
+### Backend Service — Environment Variables (set in Render dashboard)
+
+| Key | Value |
+|-----|-------|
+| `NODE_ENV` | `production` |
+| `MONGO_URI` | Your MongoDB Atlas connection string |
+| `JWT_SECRET` | A long random secret string |
+| `JWT_EXPIRES_IN` | `7d` |
+| `CLIENT_URL` | `https://vms-frontend-2us4.onrender.com` |
+
+> ⚠️ Do NOT set `PORT` — Render assigns it automatically.
+
+### Frontend Static Site — Environment Variables (set in Render dashboard)
+
+| Key | Value |
+|-----|-------|
+| `VITE_API_URL` | `https://vms-c7m6.onrender.com/api` |
+
+### Frontend Static Site — Build Settings
+
+| Setting | Value |
+|---------|-------|
+| Root Directory | `frontend` |
+| Build Command | `npm install && npm run build` |
+| Publish Directory | `dist` |
+
+---
 
 ### Prerequisites
 - Node.js v18+
