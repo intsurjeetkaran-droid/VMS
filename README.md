@@ -194,10 +194,8 @@ cd backend
 node src/scripts/seed.js
 ```
 
-This creates:
-- **Email:** `admin@vms.com`
-- **Password:** `Admin@123`
-- ⚠️ Change the password after first login!
+This creates the default admin account. Check the console output for the credentials after running the seed script.
+> ⚠️ Change the password immediately after first login!
 
 ### 4. Run the Project
 
