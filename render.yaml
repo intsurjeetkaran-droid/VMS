@@ -1,0 +1,37 @@
+services:
+  # ── Backend API (Node.js Web Service) ─────────────────────────────────────
+  - type: web
+    name: vms-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false          # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false          # Set manually in Render dashboard
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        value: https://vms-frontend-2us4.onrender.com
+
+  # ── Frontend (Static Site) ────────────────────────────────────────────────
+  - type: web
+    name: vms-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://vms-c7m6.onrender.com/api
+    routes:
+      # All routes → index.html for React client-side routing
+      - type: rewrite
+        source: /*
+        destination: /index.html

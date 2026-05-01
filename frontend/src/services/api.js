@@ -1,12 +1,18 @@
 /**
- * Axios instance with base URL and JWT interceptor
- * - Automatically attaches token to every request
- * - Handles 401 by clearing auth and redirecting to login
+ * Axios instance
+ * - In production: points to the Render backend URL
+ * - In development: uses Vite proxy → localhost:5000
+ * - Auto-attaches JWT token to every request
+ * - Handles 401 globally
  */
 import axios from 'axios';
 
+// VITE_API_URL is set in frontend/.env (local) or Render env vars (production)
+// Falls back to '/api' for local dev via Vite proxy
+const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
 });
 

@@ -1,4 +1,5 @@
 node_modules/
 dist/
+# Local env only — .env.production is safe to commit
 .env
 .env.local

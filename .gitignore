@@ -2,13 +2,12 @@
 node_modules/
 **/node_modules/
 
-# ── Environment variables (NEVER commit these) ──
+# ── Environment variables ──────────────────────
+# Local dev env (has secrets) — never commit
 .env
 .env.local
-.env.development
-.env.production
-**/.env
-**/.env.local
+# Production env (public URL only) — safe to commit
+# .env.production is intentionally NOT ignored
 
 # ── Logs ──────────────────────────────────────
 logs/
