@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   Color Palette — Design Tokens
+   Light: slate-based (cool white)
+   Dark:  zinc-based (neutral, no blue tint)
+───────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg-page:        #f8fafc;   /* slate-50  */
+  --bg-card:        #ffffff;
+  --bg-subtle:      #f1f5f9;   /* slate-100 */
+
+  /* Text */
+  --text-primary:   #0f172a;   /* slate-900 */
+  --text-secondary: #475569;   /* slate-600 */
+  --text-muted:     #94a3b8;   /* slate-400 */
+
+  /* Borders */
+  --border-default: #e2e8f0;   /* slate-200 */
+  --border-subtle:  #f1f5f9;   /* slate-100 */
+
+  /* Brand */
+  --brand:          #2563eb;   /* blue-600  */
+  --brand-hover:    #1d4ed8;   /* blue-700  */
+}
+
+.dark {
+  /* Backgrounds */
+  --bg-page:        #18181b;   /* zinc-900  */
+  --bg-card:        #27272a;   /* zinc-800  */
+  --bg-subtle:      #3f3f46;   /* zinc-700  */
+
+  /* Text */
+  --text-primary:   #fafafa;   /* zinc-50   */
+  --text-secondary: #a1a1aa;   /* zinc-400  */
+  --text-muted:     #71717a;   /* zinc-500  */
+
+  /* Borders */
+  --border-default: #3f3f46;   /* zinc-700  */
+  --border-subtle:  #52525b;   /* zinc-600  */
+
+  /* Brand (same) */
+  --brand:          #2563eb;
+  --brand-hover:    #1d4ed8;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar              { width: 5px; height: 5px; }
+::-webkit-scrollbar-track        { background: transparent; }
+::-webkit-scrollbar-thumb        { background: #cbd5e1; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb  { background: #52525b; }
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
